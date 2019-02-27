@@ -19,8 +19,27 @@ func main() {
 
 	has = hasGroupsSizeX([]int{1, 2, 3, 4, 4, 3, 2, 1})
 	fmt.Println("hax groups size x: t% ", has)
+
+	has = hasGroupsSizeXWithGCD([]int{1, 1})
+	fmt.Println("hax groups size x: t% ", has)
+
+	has = hasGroupsSizeXWithGCD([]int{1, 1, 2, 2, 2, 2})
+	fmt.Println("hax groups size x: t% ", has)
+
+	has = hasGroupsSizeXWithGCD([]int{1, 1, 1, 2, 2, 2})
+	fmt.Println("hax groups size x: t% ", has)
+
+	has = hasGroupsSizeXWithGCD([]int{1, 1, 1, 2, 2, 2, 3, 3})
+	fmt.Println("hax groups size x: t% ", has)
+
+	has = hasGroupsSizeXWithGCD([]int{1, 2, 3, 4, 4, 3, 2, 1})
+	fmt.Println("hax groups size x: t% ", has)
 }
 
+// https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/solution/
+// Brute Force
+// Time Complexity:
+// Space Complexity: O(N)
 func hasGroupsSizeX(deck []int) bool {
 	num := len(deck)
 	if num >= 2 {
@@ -54,4 +73,54 @@ func hasGroupsSizeX(deck []int) bool {
 		}
 	}
 	return false
+}
+
+// Greatest Common Divisor
+// Time Complexity:
+// Space Complexity: O(N)
+func hasGroupsSizeXWithGCD(deck []int) bool {
+	counts := [10000]int{}
+	for _, value := range deck {
+		counts[value]++
+	}
+	g := -1
+	for _, count := range counts {
+		if g == -1 {
+			g = count
+		} else {
+			g = GCDRemainderRecursive(g, count)
+
+		}
+	}
+	return g >= 2
+}
+
+// GCDEuclidean calculates GCD by Euclidian algorithm.
+func GCDEuclidean(a, b int) int {
+	for a != b {
+		if a > b {
+			a -= b
+		} else {
+			b -= a
+		}
+	}
+
+	return a
+}
+
+// GCDRemainderRecursive calculates GCD recursively using remainder.
+func GCDRemainderRecursive(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return GCDRemainderRecursive(b, a%b)
+}
+
+// GCDRemainder calculates GCD iteratively using remainder.
+func GCDRemainder(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+
+	return a
 }
