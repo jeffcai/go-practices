@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"math"
 	"strconv"
-
-	"rsc.io/quote"
 )
 
 type student struct {
@@ -59,9 +57,24 @@ func TotalPerimeter(shapes ...Shape) float64 {
 	return perimeter
 }
 
+var ch chan int = make(chan int)
+
+func foo(id int) { //id: 这个routine的标号
+	ch <- id
+}
+
 func main() {
+	// 开启5个routine
+	for i := 0; i < 5; i++ {
+		go foo(i)
+	}
+
+	// 取出信道中的数据
+	for i := 0; i < 5; i++ {
+		fmt.Println(<-ch)
+	}
+
 	v1 := 100
-	fmt.Println(quote.Hello() + strconv.Itoa(v1))
 
 	if v2 := v1; v2 == 100 {
 		fmt.Println("inside if ...")

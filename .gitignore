@@ -6,3 +6,4 @@ go-practice
 test/test
 leetcode/twosum/twosum
 leetcode/hasgroupsizex/hasgroupsizex
+leetcode/rotatelist/main.go
