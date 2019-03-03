@@ -10,7 +10,14 @@ this repo include:
 - code of using some popular golang libs
 
 
-## to be done
+## To be done
 
+- to code with concurrecy and http libs
 - use client-go
 - learn the https://github.com/aylei/kubectl-debug code
+
+
+## References/Books
+
+- The Go Programming Language
+- Concurrecy in Go

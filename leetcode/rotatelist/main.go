@@ -55,8 +55,8 @@ func initList(vals []int) *ListNode {
 
 /*
  https://leetcode.com/problems/rotate-list/solution/
- time complexity:
- space complexity:
+ time complexity: O(N)
+ space complexity: O(1)
 */
 func rotateRight(head *ListNode, k int) *ListNode {
 	len := lenOfListNodes(head)
