@@ -15,10 +15,10 @@ const (
 type Proxy struct{}
 
 func (p *Proxy) forwardRequest(req *http.Request) (*http.Response, time.Duration, error) {
-	proxyUrl := fmt.Sprintf("http://127.0.0.1:d%s%", servicePort, req.RequestURI)
+	proxyUrl := fmt.Sprintf("http://127.0.0.1:%d%s", servicePort, req.RequestURI)
 
-	fmt.Printf("Original URL: http://s%:d%s%\n", req.Host, servicePort, req.RequestURI)
-	fmt.Printf("Proxy URL: s%\n", proxyUrl)
+	fmt.Printf("Original URL: http://%s:%d%s\n", req.Host, servicePort, req.RequestURI)
+	fmt.Printf("Proxy URL: %s\n", proxyUrl)
 
 	httpClient := http.Client{}
 	proxyReq, err := http.NewRequest(req.Method, proxyUrl, req.Body)
