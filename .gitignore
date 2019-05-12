@@ -14,3 +14,7 @@ concurrency/semaphore/semaphore
 concurrency/semaphore/semaphore.debug
 concurrency/chan-range/chan-range
 concurrency/chan-select/chan-select
+concurrency/chan-close/chan-close
+concurrency/chan-non-blocking-receive/chan-non-blocking-receive
+concurrency/chan-reading-timeout/chan-reading-timeout
+concurrency/chan-signaling-with-struct/chan-signaling-with-struct
