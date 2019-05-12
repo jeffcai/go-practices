@@ -8,3 +8,9 @@ leetcode/twosum/twosum
 leetcode/hasgroupsizex/hasgroupsizex
 leetcode/rotatelist/rotatelist
 sidecarpattern/sidecarpattern
+concurrency/concurrency
+concurrency/helloworld/helloworld
+concurrency/semaphore/semaphore
+concurrency/semaphore/semaphore.debug
+concurrency/chan-range/chan-range
+concurrency/chan-select/chan-select
