@@ -20,3 +20,4 @@ concurrency/chan-reading-timeout/chan-reading-timeout
 concurrency/chan-signaling-with-struct/chan-signaling-with-struct
 concurrency/mutex/mutex
 leetcode/jewels-and-stones/jewels-and-stones
+leetcode/range-sum-bst/range-sum-bst
