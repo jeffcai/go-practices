@@ -4,6 +4,10 @@ func main() {
 
 }
 
+/**
+* time: O(N*N)
+* space: O(N)
+ */
 func TotalFruit(tree []int) int {
 	fruits := 0
 	max := 0
