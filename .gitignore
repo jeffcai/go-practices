@@ -25,3 +25,5 @@ leetcode/fruit-into-basket/fruit-into-basket
 context/context
 pkg/tls-client/tls-client
 pkg/tls-server/tls-server
+leetcode/defang-ip-addr/defang-ip-addr
+pkg/print-numbers/print-numbers
