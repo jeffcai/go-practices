@@ -27,3 +27,5 @@ pkg/tls-client/tls-client
 pkg/tls-server/tls-server
 leetcode/defang-ip-addr/defang-ip-addr
 pkg/print-numbers/print-numbers
+leetcode/add-two-numbers/add-two-numbers
+leetcode/add-two-numbers/add-two-numbers.debug
