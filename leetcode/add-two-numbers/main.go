@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"strconv"
 )
 
 /**
@@ -17,52 +15,51 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	number1 := getNumber(l1)
-	fmt.Println(number1)
+	head := &ListNode{}
+	p, q, curr := l1, l2, head
+	var carry int
+	for p != nil || q != nil {
+		var x, y int
+		if p != nil {
+			x = p.Val
+		}
+		if q != nil {
+			y = q.Val
+		}
+		sum := x + y + carry
+		fmt.Println(sum)
+		carry = sum / 10
+		curr.Next = &ListNode{Val: sum % 10}
+		curr = curr.Next
 
-	number2 := getNumber(l2)
-	fmt.Println(number2)
-
-	sum := number1 + number2
-	fmt.Println(sum)
-
-	slice := strconv.Itoa(sum)
-	fmt.Println(slice)
-	sl := &ListNode{}
-	for i := len(slice) - 1; i >= 0; i-- {
-		fmt.Println(string(slice[i]))
-
-		newNode := &ListNode{}
-		newNode.Val, _ = strconv.Atoi(string(slice[i]))
-
-		if i == len(slice)-1 {
-			sl = newNode
-		} else {
-			curr := sl
-			for curr.Next != nil {
-				curr = curr.Next
-			}
-			curr.Next = newNode
+		if p != nil {
+			p = p.Next
+		}
+		if q != nil {
+			q = q.Next
 		}
 	}
-	return sl
+	if carry > 0 {
+		curr.Next = &ListNode{Val: carry}
+	}
+	return head.Next
 }
 
-func getNumber(l *ListNode) int {
-	var number int
-	if l != nil {
-		i := 1
-		number = l.Val
-		pow := 0
-		for l.Next != nil {
-			l = l.Next
-			pow = int(math.Pow10(i))
-			number = number + l.Val*pow
-			i++
-		}
-	}
-	return number
-}
+//func getNumber(l *ListNode) int {
+//	var number int
+//	if l != nil {
+//		i := 1
+//		number = l.Val
+//		pow := 0
+//		for l.Next != nil {
+//			l = l.Next
+//			pow = int(math.Pow10(i))
+//			number = number + l.Val*pow
+//			i++
+//		}
+//	}
+//	return number
+//}
 
 func main() {
 	l1 := ListNode{Val: 7}
