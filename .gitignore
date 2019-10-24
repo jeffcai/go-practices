@@ -29,3 +29,4 @@ leetcode/defang-ip-addr/defang-ip-addr
 pkg/print-numbers/print-numbers
 leetcode/add-two-numbers/add-two-numbers
 leetcode/add-two-numbers/add-two-numbers.debug
+leetcode/smallest-integer-divisible-by-k/smallest-integer-divisible-by-k
